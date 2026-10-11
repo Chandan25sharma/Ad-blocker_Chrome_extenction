@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "requestDomains": [
+        "popads.net",
+        "popcash.net",
+        "propellerads.com",
+        "propellerclick.com",
+        "onclickads.net",
+        "adsterra.com",
+        "exoclick.com",
+        "exosrv.com",
+        "juicyads.com",
+        "hilltopads.net",
+        "clickadu.com",
+        "adcash.com",
+        "galaksion.com",
+        "ad-maven.com",
+        "indiumaspalax.com",
+        "agl002.online"
+      ]
+    }
+  }
+]

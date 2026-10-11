@@ -1,0 +1,14 @@
+# Local tool state
+.claude-flow/
+.claude/
+.vscode/
+
+# Packaged builds (Chrome "Pack extension" output; never commit the .pem key)
+*.zip
+*.crx
+*.pem
+
+# OS junk
+Thumbs.db
+Desktop.ini
+.DS_Store

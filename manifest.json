@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Personal Ad Blocker",
+  "version": "1.0.0",
+  "description": "Local-only blocker for known ad requests, with per-site exceptions.",
+  "minimum_chrome_version": "111",
+  "permissions": ["declarativeNetRequest", "storage", "activeTab", "scripting"],
+  "host_permissions": ["http://*/*", "https://*/*"],
+  "background": { "service_worker": "service-worker.js" },
+  "action": { "default_title": "Personal Ad Blocker", "default_popup": "popup.html" },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["common.js", "content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      { "id": "ads", "enabled": true, "path": "rules/ad-rules.json" },
+      { "id": "video_ads", "enabled": true, "path": "rules/video-ad-rules.json" },
+      { "id": "popup_ads", "enabled": true, "path": "rules/popup-ad-rules.json" }
+    ]
+  }
+}

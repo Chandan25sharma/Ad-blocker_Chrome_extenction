@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Personal Ad Blocker</title>
+  <style>
+    :root { color-scheme: light dark; --line: #8884; --accent: #2864dc; --danger: #c43c3c; }
+    body { width: 320px; margin: 0; padding: 14px; font: 13px/1.4 "Segoe UI", system-ui, sans-serif; }
+    h1 { font-size: 15px; margin: 0 0 12px; }
+    section { border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; margin-bottom: 10px; }
+    label.row { display: flex; justify-content: space-between; align-items: center; font-weight: 600; }
+    .muted { opacity: .7; font-size: 12px; margin: 4px 0 0; }
+    #site { font-weight: 600; overflow-wrap: anywhere; margin: 2px 0 8px; }
+    button { font: inherit; padding: 6px 10px; border-radius: 7px; border: 1px solid var(--line); cursor: pointer; }
+    button.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+    button.danger { color: var(--danger); background: none; }
+    form { display: flex; gap: 6px; }
+    input[type=text] { flex: 1; min-width: 0; font: inherit; padding: 6px 8px; border: 1px solid var(--line); border-radius: 7px; }
+    ul { list-style: none; padding: 0; margin: 8px 0 0; max-height: 160px; overflow: auto; }
+    li { display: flex; justify-content: space-between; align-items: center; padding: 4px 0; border-top: 1px solid var(--line); }
+    #error { color: var(--danger); font-size: 12px; min-height: 1em; margin: 4px 0 0; }
+  </style>
+</head>
+<body>
+  <h1>Personal Ad Blocker</h1>
+
+  <section>
+    <label class="row">Blocking <input id="enabled" type="checkbox"></label>
+    <p class="muted">Reload open tabs after changing settings.</p>
+  </section>
+
+  <section>
+    <div class="muted">Current site</div>
+    <div id="site">—</div>
+    <button id="toggle-site" class="primary" disabled>Allow ads on this site</button>
+    <label class="row" style="margin-top:10px">Block pop-up tabs on this site <input id="guard" type="checkbox" disabled></label>
+    <p class="muted">Stops new ad tabs opening on every click. Also blocks this site's real pop-ups, such as sign-in windows.</p>
+  </section>
+
+  <section>
+    <div class="muted">Allowed sites (ads not blocked)</div>
+    <form id="add">
+      <input id="domain" type="text" placeholder="example.com" spellcheck="false" autocomplete="off" aria-label="Domain to allow">
+      <button type="submit">Add</button>
+    </form>
+    <p id="error" role="status"></p>
+    <ul id="list"></ul>
+  </section>
+
+  <p class="muted">Blocks a small local list of known ad servers. It will not catch every ad, and does not remove in-stream YouTube video ads.</p>
+
+  <script src="common.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
